@@ -16,5 +16,10 @@ namespace BTM495_Team4
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
