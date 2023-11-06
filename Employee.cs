@@ -13,12 +13,21 @@ namespace BTM495_Team4
         public string eAddress;
         public int empId;
         public string role;
-        public static List<Employee> empList = new List<Employee>();
 
-        public void ViewPTOBalance(int id)
+        public Employee(string fName, string lName, string eAddress, int empId, string role)
         {
-            
-            PTOBalance.ptoBal.Find(x => x.empId== id);
+            this.fName = fName;
+            this.lName = lName;
+            this.eAddress = eAddress;
+            this.empId = empId;
+            this.role = role;
+        }
+
+
+        public static void ViewPTOBalance(int id)
+        {
+            PTOBalance.ptoBal({ });
+            //Console.WriteLine(PTOBalance.ptoBal.Find(x => x.empId == id));
         }
 
         static void ProvidePTODetails()
@@ -36,11 +45,8 @@ namespace BTM495_Team4
 
         }
 
-        public static void Main(string[] args)
-        {
-            empList.Add(new Employee() { fName = "John", lName = "Doe", eAddress = "john.doe@company.com", empId = 001, role = "Associate"});
-        }    
 
 
-        }
+
     }
+}

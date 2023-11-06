@@ -8,10 +8,15 @@ namespace BTM495_Team4
 {
     public class PTOBalance
     {
-        public static List<PTOBalance> ptoBal = new List<PTOBalance>();
+        //replace List with Array
+
+        //public static List<PTOBalance> ptoBal = new List<PTOBalance>();
+
+        public int[,] ptoBal = new int[1, 4] { {001,25,50,25} }; 
+        
+        public int empId;
         public double remainingHours;
         public double accruedHours;
-        public int empId;
         public double ptoBalance;
 
         static void DisplayPTOBalance()
@@ -25,10 +30,7 @@ namespace BTM495_Team4
         }
         public static void Main(string[] args)
         {
-
-            ptoBal.Add(new PTOBalance() { remainingHours = 25, accruedHours = 50, empId = 001, ptoBalance = 25 });
-       
         
         }
-        }
+    }
 }

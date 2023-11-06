@@ -9,18 +9,18 @@ namespace BTM495_Team4
     public class PTORequest
     {
         public int requestId;
+        public int empId;
         public string requestedDate;
         public string startDate;
         public string endDate;
-        public int empId;
         public string requestedStatus;
         public string reasonForRequest;
 
-        public static List<PTORequest> requests = new List<PTORequest>();
+        public static string[,] ptoRequest = new string[1, 7] { {"00001", "001", "October 1 2023", "November 6 2023", "November 10 2023", "Awaiting Approval", "Vacation" } };
 
         static void CreatePTORequest()
         {
-
+            ptoRequest = new string[,] { };
         }
 
         static void CancelRequest()
@@ -44,12 +44,5 @@ namespace BTM495_Team4
         }
 
         //update payroll?
-
-
-        public static void Main(string[] args)
-        {
-
-            requests.Add(new PTORequest() { requestId = 00001, requestedDate = "October 1 2023", startDate = "November 6 2023", endDate = "November 10 2023", requestedStatus = "Awaiting Approval", reasonForRequest = "Vacation" });
-        }
     }
     }

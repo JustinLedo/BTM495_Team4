@@ -9,14 +9,13 @@ namespace BTM495_Team4
     public class PTOApproval
     {
         public int approvalId;
+        public string approvalStatus;
         public string approvalDate;
         public string approvedBy;
         public string deniedBy;
-        public string approvalStatus;
         public string comments;
 
-        public static List<PTOApproval> approvals = new List<PTOApproval> ();
-
+        string[,] ptoRequest = new string[1, 6] { { "0000001", "Approved", "October 3 2023", "Jane Doe", null, "Request approved. Enjoy your vacation!" } };
         static void UpdatePTORequest()
         {
 
@@ -36,7 +35,7 @@ namespace BTM495_Team4
 
     public static void Main(string[] args)
     {
-        approvals.Add(new PTOApproval() { approvalId = 0000001, approvalStatus = "Approved", approvalDate = "October 3 2023", approvedBy = "Jane Doe", deniedBy = null, comments = "Request approved. Enjoy your vacation!" });
+        approvals.Add(new PTOApproval() {  });
 
     }
 }

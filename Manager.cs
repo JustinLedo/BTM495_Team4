@@ -14,7 +14,14 @@ namespace BTM495_Team4
         public int managerId;
         public string payrollInfo;
 
-        public static List<Manager> manaList = new List<Manager>();
+        public Manager(string fName, string lName, string eAddress, int managerId, string payrollInfo)
+        {
+            this.fName = fName;
+            this.lName = lName;
+            this.eAddress = eAddress;
+            this.managerId = managerId;
+            this.payrollInfo = payrollInfo;
+        }
 
         static void AccessOpenRequests()
         {
@@ -49,7 +56,7 @@ namespace BTM495_Team4
         {
 
 
-            manaList.Add(new Manager() { fName = "Jane", lName = "Doe", eAddress = "jane.doe@company.com", managerId = 001, payrollInfo = "000012340011234567" });
+            
         }
         }
 }
