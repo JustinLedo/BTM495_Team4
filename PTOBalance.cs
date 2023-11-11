@@ -12,7 +12,7 @@ namespace BTM495_Team4
 
         //public static List<PTOBalance> ptoBal = new List<PTOBalance>();
 
-        public int[,] ptoBal = new int[1, 4] { {001,25,50,25} }; 
+        public static int[,] ptoBal = new int[,] { {001,25,50,25} }; 
         
         public int empId;
         public double remainingHours;
@@ -28,9 +28,9 @@ namespace BTM495_Team4
         {
 
         }
-        public static void Main(string[] args)
+        /*public static void Main(string[] args)
         {
         
-        }
+        }*/
     }
 }

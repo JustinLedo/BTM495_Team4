@@ -33,10 +33,10 @@ namespace BTM495_Team4
 
     
 
-    public static void Main(string[] args)
+    /*public static void Main(string[] args)
     {
         approvals.Add(new PTOApproval() {  });
 
-    }
+    }*/
 }
 }

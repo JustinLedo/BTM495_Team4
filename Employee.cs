@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,8 +27,14 @@ namespace BTM495_Team4
 
         public static void ViewPTOBalance(int id)
         {
-            PTOBalance.ptoBal({ });
-            //Console.WriteLine(PTOBalance.ptoBal.Find(x => x.empId == id));
+            for (int i = 0; i < PTOBalance.ptoBal.GetLength(0); i++)
+            {
+                for (int j = 0; j < PTOBalance.ptoBal.GetLength(1); j++)
+                {
+                    if (PTOBalance.ptoBal[i,j] == id) 
+                    { Console.WriteLine("For the Employee " + PTOBalance.ptoBal[i, j] + ", your remaining number of hours are: " + PTOBalance.ptoBal[i, j + 1] + ", your accrued number of hours are: " + PTOBalance.ptoBal[i, j + 2] + ", and your total balance is: " + PTOBalance.ptoBal[i, j + 3]); }
+                 }
+            }
         }
 
         static void ProvidePTODetails()
@@ -35,9 +42,9 @@ namespace BTM495_Team4
 
         }
 
-        static void SubmitPTORequest()
+        static void SubmitPTORequest(int empId, string requestedDate, string startDate, string endDate, string reasonForRequest)
         {
-
+            PTORequest.CreatePTORequest(empId, requestedDate, startDate, endDate, reasonForRequest)
         }
 
         static void VerifyPTOCode()
