@@ -44,7 +44,7 @@ namespace BTM495_Team4
 
         static void SubmitPTORequest(int empId, string requestedDate, string startDate, string endDate, string reasonForRequest)
         {
-            PTORequest.CreatePTORequest(empId, requestedDate, startDate, endDate, reasonForRequest)
+            PTORequest.CreatePTORequest(empId, requestedDate, startDate, endDate, reasonForRequest);
         }
 
         static void VerifyPTOCode()

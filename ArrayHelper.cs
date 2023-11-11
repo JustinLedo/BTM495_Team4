@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BTM495_Team4
 {
-    public class ArrayHelper
+  /* public class ArrayHelper
     {
         public static void FindInDimensions(this object[,] target,
     object searchTerm)
@@ -22,10 +22,10 @@ namespace BTM495_Team4
             {
                 for (int col = colLowerLimit; col < colUpperLimit; col++)
                 {
-                    Array.Find(target[], searchTerm);
+                    //Array.Find(target[], searchTerm);
                 }
             }
 
         }
-    }
+    }*/
 }
