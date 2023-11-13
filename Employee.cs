@@ -25,31 +25,28 @@ namespace BTM495_Team4
         }
 
 
-        public static void ViewPTOBalance(int id)
+        public static void ViewPTOBalance(int empId)
         {
-            for (int i = 0; i < PTOBalance.ptoBal.GetLength(0); i++)
+            PTOBalance.DisplayPTOBalance(empId);
+
+           /* for (int i = 0; i < PTOBalance.ptoBal.GetLength(0); i++)
             {
                 for (int j = 0; j < PTOBalance.ptoBal.GetLength(1); j++)
                 {
                     if (PTOBalance.ptoBal[i,j] == id) 
                     { Console.WriteLine("For the Employee " + PTOBalance.ptoBal[i, j] + ", your remaining number of hours are: " + PTOBalance.ptoBal[i, j + 1] + ", your accrued number of hours are: " + PTOBalance.ptoBal[i, j + 2] + ", and your total balance is: " + PTOBalance.ptoBal[i, j + 3]); }
                  }
-            }
+            }*/
         }
 
-        static void ProvidePTODetails()
+        static void ProvidePTODetails(int empId, string startDate, string endDate, string reasonForRequest)
         {
-
+            PTORequest.CreatePTORequest(empId, startDate, endDate, reasonForRequest);
         }
 
-        static void SubmitPTORequest(int empId, string requestedDate, string startDate, string endDate, string reasonForRequest)
+        public static void VerifyPTOCode()
         {
-            PTORequest.CreatePTORequest(empId, requestedDate, startDate, endDate, reasonForRequest);
-        }
-
-        static void VerifyPTOCode()
-        {
-
+            PTOApproval.UpdatePTORequest();
         }
 
 

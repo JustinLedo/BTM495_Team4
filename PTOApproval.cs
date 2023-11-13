@@ -15,28 +15,24 @@ namespace BTM495_Team4
         public string deniedBy;
         public string comments;
 
-        string[,] ptoRequest = new string[1, 6] { { "0000001", "Approved", "October 3 2023", "Jane Doe", null, "Request approved. Enjoy your vacation!" } };
-        static void UpdatePTORequest()
+        public static void UpdatePTORequest(int empId, string newStatus)
         {
-
+                var empIndex = PTORequest.ptoReqs.FindIndex(a => a.empId == empId);
+                var oldStatusIndex = Convert.ToInt32(PTORequest.ptoReqs[empIndex + 5]);
+            PTORequest.ptoReqs.Insert(oldStatusIndex, new PTORequest() { reasonForRequest = newStatus });
         }
 
         static void UpdatePayroll()
         {
-
+            //This adjusts the PTOBalance value after the approval goes through
         }
-
+        public static void NotifyEmployee()
+        {
+            Console.WriteLine();
+        }
         //static void NotifyEmployee()
         //{
 
         //}
-
-    
-
-    /*public static void Main(string[] args)
-    {
-        approvals.Add(new PTOApproval() {  });
-
-    }*/
-}
+    }
 }

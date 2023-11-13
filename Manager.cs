@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,38 +27,50 @@ namespace BTM495_Team4
 
         static void AccessOpenRequests()
         {
-
+            PTORequest.ListOpenRequests();
         }
 
-        static void SelectPTORequest()
+        static void SelectPTORequest(int empId)
         {
-
+            PTORequest.DisplayPTORequest(empId);
         }
 
-        static void ApprovePTO()
+        public static void ApprovePTO(int empId, string newStatus)
         {
-
+            PTOApproval.UpdatePTORequest(empId, newStatus);
         }
 
-        static void ViewPTOBalance()
+        public static void DeclinePTO(int empId, string newStatus)
         {
+            PTOApproval.UpdatePTORequest(empId, newStatus);
+        }
 
+        static void ViewPTOBalance(int empId)
+        {
+            PTOBalance.DisplayPTOBalance(empId);
         }
 
         static void ConfirmRequest()
         {
 
         }
-        static void GeneratePTOCode()
+        public static void GeneratePTOCode(int empId, string newStatus)
         {
+            //For simplicity, we will store the ptoCode as a PTORequest status update
 
-        }
+            Random rnd = new Random();
+            var ptoCode = rnd.Next();
 
-        /*public static void Main(string[] args)
-        {
+            public List<PTOApproval> ptoCodes = new List<PTOApproval>() {new PTOApproval () empId = empId } };
 
-
-            
-        }*/
+        //PTOApproval.UpdatePTORequest(empId, newStatus);
         }
 }
+    /*public static void Main(string[] args)
+    {
+
+
+
+    }*/
+}
+
