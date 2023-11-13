@@ -29,24 +29,26 @@ namespace BTM495_Team4
         {
             PTOBalance.DisplayPTOBalance(empId);
 
-           /* for (int i = 0; i < PTOBalance.ptoBal.GetLength(0); i++)
-            {
-                for (int j = 0; j < PTOBalance.ptoBal.GetLength(1); j++)
-                {
-                    if (PTOBalance.ptoBal[i,j] == id) 
-                    { Console.WriteLine("For the Employee " + PTOBalance.ptoBal[i, j] + ", your remaining number of hours are: " + PTOBalance.ptoBal[i, j + 1] + ", your accrued number of hours are: " + PTOBalance.ptoBal[i, j + 2] + ", and your total balance is: " + PTOBalance.ptoBal[i, j + 3]); }
-                 }
-            }*/
         }
 
-        static void ProvidePTODetails(int empId, string startDate, string endDate, string reasonForRequest)
+        public static void ProvidePTODetails(int empId, string startDate, string endDate, string reasonForRequest)
         {
             PTORequest.CreatePTORequest(empId, startDate, endDate, reasonForRequest);
         }
 
-        public static void VerifyPTOCode()
+        public static void VerifyPTOCode(int empId, int ptoCode)
         {
-            PTOApproval.UpdatePTORequest();
+
+            // Should have a pop up/user request option to confirm the code is indeed the same in the final protoype
+            var codeInListIndex = PTOApproval.ptoCodes.FindIndex(x=>x.ptoCode==ptoCode);
+            int codeInRequestIndex = PTORequest.ptoReqs.FindIndex(a =>a.requestedStatus == Convert.ToString(ptoCode));
+
+            var codeInList = Convert.ToInt32(PTOApproval.ptoCodes[codeInListIndex]);
+            var codeInRequest = Convert.ToInt32(PTORequest.ptoReqs[codeInRequestIndex]);
+
+            if ((ptoCode == codeInList) && (ptoCode == codeInRequest) ){ Console.WriteLine("The codes match! The PTO has been successfully verified. Enjoy your " + PTORequest.ptoReqs[codeInRequestIndex - 1]); }
+            else { Console.WriteLine("The code has not been verified! It is either different between the list of generated codes and the code displayed in the request OR it is non existant! Please review both sources."); }
+            
         }
 
 

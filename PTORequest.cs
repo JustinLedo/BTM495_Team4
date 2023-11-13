@@ -17,7 +17,6 @@ namespace BTM495_Team4
         public string requestedStatus { get; set; }
         public string reasonForRequest { get; set; }
 
-        //public static string[,] ptoRequest = new string[,] { { "00001", "001", "October 1 2023", "November 6 2023", "November 10 2023", "Awaiting Approval", "Vacation" } };
 
         public static List<PTORequest> ptoReqs = new List<PTORequest>() { new PTORequest() { requestId = 00001, empId = 001, requestedDate = "October 1 2023", startDate = "November 6 2023", endDate = "November 10 2023", reasonForRequest = "Awaiting Approval", requestedStatus = "Vacation" } };
 
@@ -29,10 +28,6 @@ namespace BTM495_Team4
             var reqDayToday = DateTime.Today;
             ptoReqs.Add(new PTORequest() { requestId = newID, empId = empId, requestedDate = reqDayToday.ToString(), startDate = start, endDate = end, reasonForRequest = reason, requestedStatus = "Pending Review" });
 
-
-            /*var prevId = ptoRequest.GetUpperBound(0);
-            ptoRequest = new string[,] { { ptoRequest[prevId + 1,0], empId.ToString(), requestedDate, startDate, endDate, reasonForRequest } };
-            */
         }
 
 
@@ -48,6 +43,7 @@ namespace BTM495_Team4
                     {
                         throw new Exception("The PTO detail " + p + "is missing or empty! Please provide the following information.");
                     }
+                    else { Console.WriteLine("Everything looks good! Please await your manager's review and response to your request. Thank you!"); }
                 }
             }
 
