@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Linq.Expressions;
 
 namespace BTM495_Team4
 {
-    public partial class EmployeeLogin : Form
+    public partial class ManagerLogin : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\justi\source\repos\JustinLedo\BTM495_Team4\Employee.mdf;Integrated Security=True;Connect Timeout=30");
-        public EmployeeLogin()
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\justi\source\repos\JustinLedo\BTM495_Team4\Manager.mdf;Integrated Security=True;Connect Timeout=30");
+        public ManagerLogin()
         {
             InitializeComponent();
         }
@@ -54,34 +55,27 @@ namespace BTM495_Team4
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void quit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void button1_Click_2(object sender, EventArgs e)
+        private void empp_button_Click(object sender, EventArgs e)
         {
-            if (emp_username_txtbox.Text == "" || emp_password_txtbox.Text == "")
+            EmployeeLogin loginForm = new EmployeeLogin();
+            loginForm.Show();
+            this.Hide();
+
+        }
+
+        private void manager_showpass_chkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            manager_password_txtbox.PasswordChar = manager_showpass_chkbox.Checked ? '\0' : '*';
+        }
+
+        private void manager_login_button_Click(object sender, EventArgs e)
+        {
+            if (manager_username_txtbox.Text == "" || manager_password_txtbox.Text == "")
             {
                 MessageBox.Show("Please fill in all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -92,12 +86,12 @@ namespace BTM495_Team4
                     try
                     {
                         connect.Open();
-                        string selectData = "SELECT * FROM employees WHERE username = @username " + "AND password = @password";
+                        string selectData = "SELECT * FROM managers WHERE username = @username " + "AND password = @password";
 
                         using (SqlCommand cmd = new SqlCommand(selectData, connect))
                         {
-                            cmd.Parameters.AddWithValue("@username", emp_username_txtbox.Text.Trim());
-                            cmd.Parameters.AddWithValue("@password", emp_password_txtbox.Text.Trim());
+                            cmd.Parameters.AddWithValue("@username", manager_username_txtbox.Text.Trim());
+                            cmd.Parameters.AddWithValue("@password", manager_password_txtbox.Text.Trim());
 
                             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                             DataTable table = new DataTable();
@@ -107,9 +101,11 @@ namespace BTM495_Team4
                             if (table.Rows.Count >= 1)
                             {
                                 MessageBox.Show("Login Successful!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                EmployeePortal empPortal = new EmployeePortal();
-                                empPortal.Show();
+
+                                ManagerPortal managerPortal = new ManagerPortal();
+                                managerPortal.Show();
                                 this.Hide();
+
                             }
                             else
                             {
@@ -130,26 +126,7 @@ namespace BTM495_Team4
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            emp_password_txtbox.PasswordChar = emp_showpass_chkbox.Checked ? '\0' : '*';
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ManagerLogin loginForm = new ManagerLogin();
-            loginForm.Show();
-            this.Hide();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
+  

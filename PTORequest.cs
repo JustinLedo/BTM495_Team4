@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using Org.BouncyCastle.Ocsp;
 
 namespace BTM495_Team4
 {
@@ -17,16 +21,60 @@ namespace BTM495_Team4
         public string requestedStatus { get; set; }
         public string reasonForRequest { get; set; }
 
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\justi\source\repos\JustinLedo\BTM495_Team4\Employee.mdf;Integrated Security=True;Connect Timeout=30");
 
-        public static List<PTORequest> ptoReqs = new List<PTORequest>() { new PTORequest() { requestId = 00001, empId = 001, requestedDate = "October 1 2023", startDate = "November 6 2023", endDate = "November 10 2023", reasonForRequest = "Awaiting Approval", requestedStatus = "Vacation" } };
+        public static List<PTORequest> ptoReqs = new List<PTORequest>();
+        public List<PTORequest> requests()
+
+        {
+
+            if (connect.State != ConnectionState.Open)
+            {
+                try
+                {
+                    string selectData = "SELECT * FROM ptoRequests WHERE requestStatus NOT IN ('Approved')";
+
+                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                    {
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            connect.Open();
+                            PTORequest req = new PTORequest();
+                            req.requestId = (int)reader["requestID"];
+                            req.empId = (int)reader["empId"];
+                            req.requestedDate = reader["requestedDate"].ToString();
+                            req.startDate = reader["startDate"].ToString();
+                            req.endDate = reader["endDate"].ToString();
+                            req.requestedStatus = reader["requestedStatus"].ToString();
+                            req.reasonForRequest = reader["reasonForRequest"].ToString();
+
+
+                            ptoReqs.Add(req);
+                        }
+                    }
+                }
+                catch (Exception ex) { Console.WriteLine("Error: " + ex); }
+                finally { connect.Close(); }
+            }
+            return ptoReqs;
+        }
+
+
+
+
+
+
+
 
         public static void CreatePTORequest(int empId, string start, string end, string reason)
         {
-            var prevIdIndex = ptoReqs.FindLastIndex(a => a.requestId > 0);
-            var prevID = ptoReqs[prevIdIndex];
+            var prevIdIndex = PTORequest.ptoReqs.FindLastIndex(a => a.requestId > 0);
+            var prevID = PTORequest.ptoReqs[prevIdIndex];
             var newID = Convert.ToInt32(prevID) + 1;
             var reqDayToday = DateTime.Today;
-            ptoReqs.Add(new PTORequest() { requestId = newID, empId = empId, requestedDate = reqDayToday.ToString(), startDate = start, endDate = end, reasonForRequest = reason, requestedStatus = "Pending Review" });
+            PTORequest.ptoReqs.Add(new PTORequest() { requestId = newID, empId = empId, requestedDate = reqDayToday.ToString(), startDate = start, endDate = end, reasonForRequest = reason, requestedStatus = "Pending Review" });
 
         }
 
@@ -34,8 +82,8 @@ namespace BTM495_Team4
 
         public static void ConfirmDetails(int requestId)
         {
-            var reqIndex = Convert.ToInt32(ptoReqs.FindIndex(a => a.requestId == requestId));
-            foreach (var p in ptoReqs)
+            var reqIndex = Convert.ToInt32(PTORequest.ptoReqs.FindIndex(a => a.requestId == requestId));
+            foreach (var p in PTORequest.ptoReqs)
             {
                 for (int i = reqIndex; i <= reqIndex + 5; i++)
                 {
@@ -53,23 +101,23 @@ namespace BTM495_Team4
         {
             // Print all empID with open requests. PTOApproval will have to remove/delete all completed requests
 
-            foreach (PTORequest empId in ptoReqs)
+            foreach (PTORequest empId in PTORequest.ptoReqs)
             {
                 Console.WriteLine("The following employees have open requests: " + empId);
             }
         }
-            public static void DisplayPTORequest(int empId)
-            {
-                var empIndex = ptoReqs.FindIndex(a => a.empId == empId);
-                Console.WriteLine("For the Employee " + PTORequest.ptoReqs[empIndex] + ", the PTO start date is: " + ptoReqs[empIndex + 2] + "and the end date is: " + ptoReqs[empIndex + 3] + ". The reason for this PTO is: " + ptoReqs[empIndex + 4] + ". This PTO was requested on " + ptoReqs[empIndex -1 ] + " and is currently " + ptoReqs[empIndex + 5]);
+        public static void DisplayPTORequest(int empId)
+        {
+            var empIndex = PTORequest.ptoReqs.FindIndex(a => a.empId == empId);
+            Console.WriteLine("For the Employee " + PTORequest.ptoReqs[empIndex] + ", the PTO start date is: " + ptoReqs[empIndex + 2] + "and the end date is: " + ptoReqs[empIndex + 3] + ". The reason for this PTO is: " + ptoReqs[empIndex + 4] + ". This PTO was requested on " + ptoReqs[empIndex - 1] + " and is currently " + ptoReqs[empIndex + 5]);
 
-            }
+        }
 
-             public static void CancelPTORequest(int empId)
-            {
-            var empIndex = ptoReqs.FindIndex(a => a.empId == empId);
-            ptoReqs.RemoveRange(empIndex -1, empIndex + 5);
+        public static void CancelPTORequest(int empId)
+        {
+            var empIndex = PTORequest.ptoReqs.FindIndex(a => a.empId == empId);
+            PTORequest.ptoReqs.RemoveRange(empIndex - 1, empIndex + 5);
         }
-        }
+
     }
-
+}

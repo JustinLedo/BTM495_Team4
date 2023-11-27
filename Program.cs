@@ -22,7 +22,7 @@ namespace BTM495_Team4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new EmployeeLogin());
             new Employee("John", "Doe", "john.doe@company.com", 001, "Associate");
             new Manager("Jane", "Doe", "jane.doe@company.com", 1, "000012340011234567");
 
