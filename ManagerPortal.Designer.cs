@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerPortal));
             this.panel1 = new System.Windows.Forms.Panel();
             this.quit = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -36,20 +37,20 @@
             this.employeeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.managerDashboard1 = new BTM495_Team4.ManagerDashboard();
-            this.managerViewReqs1 = new BTM495_Team4.ManagerViewReqs();
             this.button1 = new System.Windows.Forms.Button();
             this.manager_dashboard_button = new System.Windows.Forms.Button();
             this.manager_viewReqs_button = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.managerDashboard1 = new BTM495_Team4.ManagerDashboard();
+            this.managerViewReqs1 = new BTM495_Team4.ManagerViewReqs();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataSetBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -122,6 +123,62 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Sign Out";
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(10, 510);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(37, 30);
+            this.button1.TabIndex = 10;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // manager_dashboard_button
+            // 
+            this.manager_dashboard_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(117)))), ((int)(((byte)(1)))));
+            this.manager_dashboard_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.manager_dashboard_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.manager_dashboard_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.manager_dashboard_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.manager_dashboard_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manager_dashboard_button.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manager_dashboard_button.ForeColor = System.Drawing.Color.White;
+            this.manager_dashboard_button.Image = ((System.Drawing.Image)(resources.GetObject("manager_dashboard_button.Image")));
+            this.manager_dashboard_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.manager_dashboard_button.Location = new System.Drawing.Point(33, 233);
+            this.manager_dashboard_button.Name = "manager_dashboard_button";
+            this.manager_dashboard_button.Size = new System.Drawing.Size(179, 74);
+            this.manager_dashboard_button.TabIndex = 9;
+            this.manager_dashboard_button.Text = "DASHBOARD";
+            this.manager_dashboard_button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.manager_dashboard_button.UseVisualStyleBackColor = false;
+            this.manager_dashboard_button.Click += new System.EventHandler(this.manager_dashboard_button_Click);
+            // 
+            // manager_viewReqs_button
+            // 
+            this.manager_viewReqs_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(117)))), ((int)(((byte)(1)))));
+            this.manager_viewReqs_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.manager_viewReqs_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.manager_viewReqs_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.manager_viewReqs_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.manager_viewReqs_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manager_viewReqs_button.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manager_viewReqs_button.ForeColor = System.Drawing.Color.White;
+            this.manager_viewReqs_button.Image = ((System.Drawing.Image)(resources.GetObject("manager_viewReqs_button.Image")));
+            this.manager_viewReqs_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.manager_viewReqs_button.Location = new System.Drawing.Point(33, 332);
+            this.manager_viewReqs_button.Name = "manager_viewReqs_button";
+            this.manager_viewReqs_button.Size = new System.Drawing.Size(179, 74);
+            this.manager_viewReqs_button.TabIndex = 7;
+            this.manager_viewReqs_button.Text = "VIEW REQUESTS";
+            this.manager_viewReqs_button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.manager_viewReqs_button.UseVisualStyleBackColor = false;
+            this.manager_viewReqs_button.Click += new System.EventHandler(this.manager_viewReqs_button_Click_1);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -132,6 +189,16 @@
             this.label2.Size = new System.Drawing.Size(205, 23);
             this.label2.TabIndex = 6;
             this.label2.Text = "Welcome, Manager!";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(56, 49);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(139, 129);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // panel3
             // 
@@ -157,72 +224,6 @@
             this.managerViewReqs1.Size = new System.Drawing.Size(834, 542);
             this.managerViewReqs1.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::BTM495_Team4.Properties.Resources.power__1_;
-            this.button1.Location = new System.Drawing.Point(10, 510);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(37, 30);
-            this.button1.TabIndex = 10;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // manager_dashboard_button
-            // 
-            this.manager_dashboard_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(117)))), ((int)(((byte)(1)))));
-            this.manager_dashboard_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.manager_dashboard_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.manager_dashboard_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.manager_dashboard_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.manager_dashboard_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.manager_dashboard_button.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manager_dashboard_button.ForeColor = System.Drawing.Color.White;
-            this.manager_dashboard_button.Image = global::BTM495_Team4.Properties.Resources.dashboard;
-            this.manager_dashboard_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.manager_dashboard_button.Location = new System.Drawing.Point(33, 233);
-            this.manager_dashboard_button.Name = "manager_dashboard_button";
-            this.manager_dashboard_button.Size = new System.Drawing.Size(179, 74);
-            this.manager_dashboard_button.TabIndex = 9;
-            this.manager_dashboard_button.Text = "DASHBOARD";
-            this.manager_dashboard_button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.manager_dashboard_button.UseVisualStyleBackColor = false;
-            this.manager_dashboard_button.Click += new System.EventHandler(this.manager_dashboard_button_Click);
-            // 
-            // manager_viewReqs_button
-            // 
-            this.manager_viewReqs_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(117)))), ((int)(((byte)(1)))));
-            this.manager_viewReqs_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.manager_viewReqs_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.manager_viewReqs_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.manager_viewReqs_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.manager_viewReqs_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.manager_viewReqs_button.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manager_viewReqs_button.ForeColor = System.Drawing.Color.White;
-            this.manager_viewReqs_button.Image = global::BTM495_Team4.Properties.Resources.quote_request;
-            this.manager_viewReqs_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.manager_viewReqs_button.Location = new System.Drawing.Point(33, 332);
-            this.manager_viewReqs_button.Name = "manager_viewReqs_button";
-            this.manager_viewReqs_button.Size = new System.Drawing.Size(179, 74);
-            this.manager_viewReqs_button.TabIndex = 7;
-            this.manager_viewReqs_button.Text = "VIEW REQUESTS";
-            this.manager_viewReqs_button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.manager_viewReqs_button.UseVisualStyleBackColor = false;
-            this.manager_viewReqs_button.Click += new System.EventHandler(this.manager_viewReqs_button_Click_1);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = global::BTM495_Team4.Properties.Resources.people;
-            this.pictureBox1.Location = new System.Drawing.Point(56, 49);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(139, 129);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
             // ManagerPortal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -241,8 +242,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataSetBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

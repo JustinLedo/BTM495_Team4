@@ -36,5 +36,10 @@ namespace BTM495_Team4
         {
 
         }
+
+        private void manager_totalemps_label_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

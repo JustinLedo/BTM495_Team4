@@ -24,7 +24,7 @@ namespace BTM495_Team4
         SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\justi\source\repos\JustinLedo\BTM495_Team4\Employee.mdf;Integrated Security=True;Connect Timeout=30");
 
         public static List<PTORequest> ptoReqs = new List<PTORequest>();
-        public List<PTORequest> requests()
+       /* public List<PTORequest> requests()
 
         {
 
@@ -60,9 +60,9 @@ namespace BTM495_Team4
             }
             return ptoReqs;
         }
+       */
 
-
-
+       
 
 
 
