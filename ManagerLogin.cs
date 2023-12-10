@@ -102,6 +102,8 @@ namespace BTM495_Team4
                             {
                                 MessageBox.Show("Login Successful!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                                Manager.currentUser = (int)cmd.ExecuteScalar();
+
                                 ManagerPortal managerPortal = new ManagerPortal();
                                 managerPortal.Show();
                                 this.Hide();

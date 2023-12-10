@@ -146,7 +146,7 @@ manager_empnamesearch_txtbox.Text = manager_viewreqs_datagrid.SelectedRows[0].Ce
 
 
                             cmd.ExecuteNonQuery();
-
+                            
                             displayOpenRequests();
 
                             MessageBox.Show("Approved successfully!"
@@ -175,6 +175,28 @@ manager_empnamesearch_txtbox.Text = manager_viewreqs_datagrid.SelectedRows[0].Ce
                             displayOpenRequests();
                         }
                         */
+
+                        /*string approvalData = "UPDATE ptoApprovals SET requestedStatus = 'Approved! Please validate.', empId = " + + "comments = '" + manager_comments_txtbox.Text + "' WHERE empId = '" + manager_idsearch_txtbox.Text + "';";
+
+                        using (SqlCommand cmd = new SqlCommand(approvalData, connect))
+                        {
+
+                            //cmd.Parameters.AddWithValue("@status", "Approved!");
+                            //cmd.Parameters.AddWithValue("@comments", "Enjoy");
+                            //cmd.Parameters.AddWithValue("@empId", SqlDbType.Int).Value = manager_idsearch_txtbox.Text;
+
+
+                            cmd.ExecuteNonQuery();
+
+                            displayOpenRequests();
+
+                            MessageBox.Show("Approved successfully!"
+                                , "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            connect.Close();
+                        }*/
+
+
+                        displayOpenRequests();
                     }
 
                     else if (deny_radbtn.Checked == true && approve_radbtn.Checked == false)
@@ -218,6 +240,8 @@ manager_empnamesearch_txtbox.Text = manager_viewreqs_datagrid.SelectedRows[0].Ce
                             displayOpenRequests();
                         }
                         connect.Close();*/
+
+                        displayOpenRequests();
                     }
 
                 }

@@ -107,6 +107,10 @@ namespace BTM495_Team4
                             if (table.Rows.Count >= 1)
                             {
                                 MessageBox.Show("Login Successful!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                Employee.currentUser = (int)cmd.ExecuteScalar();
+                                
+                                                                                                                        
                                 EmployeePortal empPortal = new EmployeePortal();
                                 empPortal.Show();
                                 this.Hide();

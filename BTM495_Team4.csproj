@@ -184,6 +184,12 @@
     <Compile Include="ManagerViewReqs.Designer.cs">
       <DependentUpon>ManagerViewReqs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Portal Requests1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Portal Requests1.Designer.cs">
+      <DependentUpon>Portal Requests1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PTOApproval.cs" />
@@ -215,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerViewReqs.resx">
       <DependentUpon>ManagerViewReqs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Portal Requests1.resx">
+      <DependentUpon>Portal Requests1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -290,13 +299,6 @@
     <Content Include="Employee_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Employee.mdf</DependentUpon>
-    </Content>
-    <Content Include="Manager.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manager_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Manager.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

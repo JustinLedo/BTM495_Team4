@@ -19,15 +19,15 @@ namespace BTM495_Team4
 
         private void button1_Click(object sender, EventArgs e)
         {
-        
+
         }
 
         private void quit_Click(object sender, EventArgs e)
         {
-              Application.Exit();
-            
-                
-            }
+            Application.Exit();
+
+
+        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -43,22 +43,25 @@ namespace BTM495_Team4
 
         private void manager_dashboard_button_Click(object sender, EventArgs e)
         {
-            empPortal1.Visible = true;
+            employeeDashboard1.Visible = true;
             empRequests1.Visible = false;
-            
+            portal_Requests11.Visible = false;
+
         }
 
         private void manager_viewReqs_button_Click_1(object sender, EventArgs e)
         {
-            //Managerdashboard1.Visible = false;
-            //managerViewReqs1.Visible = true;
+            employeeDashboard1.Visible = false;
+            empRequests1.Visible = false;
+            portal_Requests11.Visible = true;
         }
 
         private void emp_validate_btn_Click(object sender, EventArgs e)
         {
-            empPortal1.Visible = false;
+            employeeDashboard1.Visible = false;
             empRequests1.Visible = true;
+            portal_Requests11.Visible = false;
         }
     }
-    }
+}
 

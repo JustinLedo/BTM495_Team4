@@ -82,7 +82,7 @@ namespace BTM495_Team4
             if (confirm_radbtn.Checked == true && cancel_radbtn.Checked == false)
             {
                 connect.Open();
-                string selectData = "SELECT * FROM ptoApproval WHERE empId = 1 " + "AND ptoCode = @ptoCode";
+                string selectData = "SELECT * FROM ptoApproval WHERE empId = " + Employee.currentUser;
 
                 using (SqlCommand cmd = new SqlCommand(selectData, connect))
                 {

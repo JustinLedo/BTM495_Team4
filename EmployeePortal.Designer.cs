@@ -36,22 +36,23 @@
             this.employeeDataSet = new BTM495_Team4.EmployeeDataSet();
             this.employeeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.emp_validate_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.emp_validate_btn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.emp_dashboard_button = new System.Windows.Forms.Button();
-            this.manager_viewReqs_button = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.emp_createReq_btn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.empPortal1 = new BTM495_Team4.EmpPortal();
             this.empRequests1 = new BTM495_Team4.EmpRequests();
+            this.portal_Requests11 = new BTM495_Team4.Portal_Requests1();
+            this.employeeDashboard1 = new BTM495_Team4.EmployeeDashboard();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataSetBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -105,7 +106,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.emp_dashboard_button);
-            this.panel2.Controls.Add(this.manager_viewReqs_button);
+            this.panel2.Controls.Add(this.emp_createReq_btn);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -113,6 +114,39 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(266, 542);
             this.panel2.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(53, 515);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 18);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Sign Out";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(29, 181);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(214, 23);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Welcome, Employee!\r\n";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.employeeDashboard1);
+            this.panel3.Controls.Add(this.portal_Requests11);
+            this.panel3.Controls.Add(this.empRequests1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(266, 58);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(834, 542);
+            this.panel3.TabIndex = 2;
             // 
             // emp_validate_btn
             // 
@@ -134,17 +168,6 @@
             this.emp_validate_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.emp_validate_btn.UseVisualStyleBackColor = false;
             this.emp_validate_btn.Click += new System.EventHandler(this.emp_validate_btn_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(53, 515);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 18);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Sign Out";
             // 
             // button1
             // 
@@ -181,37 +204,26 @@
             this.emp_dashboard_button.UseVisualStyleBackColor = false;
             this.emp_dashboard_button.Click += new System.EventHandler(this.manager_dashboard_button_Click);
             // 
-            // manager_viewReqs_button
+            // emp_createReq_btn
             // 
-            this.manager_viewReqs_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(117)))), ((int)(((byte)(1)))));
-            this.manager_viewReqs_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.manager_viewReqs_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.manager_viewReqs_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.manager_viewReqs_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.manager_viewReqs_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.manager_viewReqs_button.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manager_viewReqs_button.ForeColor = System.Drawing.Color.White;
-            this.manager_viewReqs_button.Image = ((System.Drawing.Image)(resources.GetObject("manager_viewReqs_button.Image")));
-            this.manager_viewReqs_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.manager_viewReqs_button.Location = new System.Drawing.Point(33, 332);
-            this.manager_viewReqs_button.Name = "manager_viewReqs_button";
-            this.manager_viewReqs_button.Size = new System.Drawing.Size(179, 74);
-            this.manager_viewReqs_button.TabIndex = 7;
-            this.manager_viewReqs_button.Text = "CREATE REQUEST";
-            this.manager_viewReqs_button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.manager_viewReqs_button.UseVisualStyleBackColor = false;
-            this.manager_viewReqs_button.Click += new System.EventHandler(this.manager_viewReqs_button_Click_1);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(29, 181);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 23);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Welcome, Employee!\r\n";
+            this.emp_createReq_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(117)))), ((int)(((byte)(1)))));
+            this.emp_createReq_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.emp_createReq_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.emp_createReq_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.emp_createReq_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.emp_createReq_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.emp_createReq_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emp_createReq_btn.ForeColor = System.Drawing.Color.White;
+            this.emp_createReq_btn.Image = ((System.Drawing.Image)(resources.GetObject("emp_createReq_btn.Image")));
+            this.emp_createReq_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.emp_createReq_btn.Location = new System.Drawing.Point(33, 332);
+            this.emp_createReq_btn.Name = "emp_createReq_btn";
+            this.emp_createReq_btn.Size = new System.Drawing.Size(179, 74);
+            this.emp_createReq_btn.TabIndex = 7;
+            this.emp_createReq_btn.Text = "CREATE REQUEST";
+            this.emp_createReq_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.emp_createReq_btn.UseVisualStyleBackColor = false;
+            this.emp_createReq_btn.Click += new System.EventHandler(this.manager_viewReqs_button_Click_1);
             // 
             // pictureBox1
             // 
@@ -223,29 +235,26 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.empPortal1);
-            this.panel3.Controls.Add(this.empRequests1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(266, 58);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(834, 542);
-            this.panel3.TabIndex = 2;
-            // 
-            // empPortal1
-            // 
-            this.empPortal1.Location = new System.Drawing.Point(0, 0);
-            this.empPortal1.Name = "empPortal1";
-            this.empPortal1.Size = new System.Drawing.Size(834, 542);
-            this.empPortal1.TabIndex = 1;
-            // 
             // empRequests1
             // 
-            this.empRequests1.Location = new System.Drawing.Point(-3, -2);
+            this.empRequests1.Location = new System.Drawing.Point(0, 0);
             this.empRequests1.Name = "empRequests1";
             this.empRequests1.Size = new System.Drawing.Size(834, 542);
             this.empRequests1.TabIndex = 0;
+            // 
+            // portal_Requests11
+            // 
+            this.portal_Requests11.Location = new System.Drawing.Point(0, 0);
+            this.portal_Requests11.Name = "portal_Requests11";
+            this.portal_Requests11.Size = new System.Drawing.Size(834, 542);
+            this.portal_Requests11.TabIndex = 1;
+            // 
+            // employeeDashboard1
+            // 
+            this.employeeDashboard1.Location = new System.Drawing.Point(0, 3);
+            this.employeeDashboard1.Name = "employeeDashboard1";
+            this.employeeDashboard1.Size = new System.Drawing.Size(834, 542);
+            this.employeeDashboard1.TabIndex = 2;
             // 
             // EmployeePortal
             // 
@@ -265,8 +274,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataSetBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -280,14 +289,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button manager_viewReqs_button;
+        private System.Windows.Forms.Button emp_createReq_btn;
         private System.Windows.Forms.Button emp_dashboard_button;
         private System.Windows.Forms.Label quit;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button emp_validate_btn;
+        private EmployeeDashboard employeeDashboard1;
+        private Portal_Requests1 portal_Requests11;
         private EmpRequests empRequests1;
-        private EmpPortal empPortal1;
     }
 }

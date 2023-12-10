@@ -16,6 +16,8 @@ namespace BTM495_Team4
         public int managerId;
         public string payrollInfo;
 
+        public static int currentUser = 0;
+
         public Manager(string fName, string lName, string eAddress, int managerId, string payrollInfo)
         {
             this.fName = fName;

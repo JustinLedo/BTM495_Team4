@@ -15,13 +15,17 @@ namespace BTM495_Team4
         public int empId;
         public string role;
 
-        public Employee(string fName, string lName, string eAddress, int empId, string role)
+
+        //ADD a way to keep userID of logged in user throughout app
+        public static int currentUser = 0;
+        public Employee(string fName, string lName, string eAddress, int empId, string role, int currentUser)
         {
             this.fName = fName;
             this.lName = lName;
             this.eAddress = eAddress;
             this.empId = empId;
             this.role = role;
+       
         }
 
 
